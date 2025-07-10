@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Weather Monitoring System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      min-width: 300px;
+    }
+    h1 {
+      color: #00796b;
+    }
+    .reading {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Smart Weather Monitoring</h1>
+    <div class="reading">🌡️ Temperature: <span id="temp">--</span> °C</div>
+    <div class="reading">💧 Humidity: <span id="humidity">--</span> %</div>
+    <div class="reading">🌬️ Pressure: <span id="pressure">--</span> hPa</div>
+    <div class="reading">🕒 Last Updated: <span id="timestamp">--</span></div>
+  </div>
+
+  <script>
+    function generateWeatherData() {
+      const temperature = (Math.random() * 15 + 20).toFixed(1);
+      const humidity = (Math.random() * 40 + 40).toFixed(1);
+      const pressure = (Math.random() * 20 + 1005).toFixed(1);
+      const timestamp = new Date().toLocaleTimeString();
+
+      document.getElementById('temp').innerText = temperature;
+      document.getElementById('humidity').innerText = humidity;
+      document.getElementById('pressure').innerText = pressure;
+      document.getElementById('timestamp').innerText = timestamp;
+    }
+
+    // Initial update
+    generateWeatherData();
+    // Update every 3 seconds
+    setInterval(generateWeatherData, 3000);
+  </script>
+
+</body>
+</html>
